@@ -1,0 +1,19 @@
+{
+    "clientId": "client_id",
+    "secret" : "client_secret",
+    "redirectUris": [
+        "https://localhost/callback"
+    ],
+    "baseUrl": "https://localhost/",
+    "enabled": true,
+    "protocol": "openid-connect",
+    "publicClient": false,
+    "clientAuthenticatorType": "client-secret",
+    "frontchannelLogout": true,
+    "attributes": {
+        "backchannel.logout.session.required": "true",
+        "backchannel.logout.url.bak": "http://localhost/callback?logout=backchannel",
+        "frontchannel.logout.url": "https://localhost/callback?logout=img"
+    }
+}
+

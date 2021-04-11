@@ -1,0 +1,9 @@
+version: "2.4"
+
+services:
+  apache:
+    build: .
+    network_mode: host
+    volumes:
+      - ./oidc.conf:/etc/apache2/conf.d/z_oidc.conf
+    
