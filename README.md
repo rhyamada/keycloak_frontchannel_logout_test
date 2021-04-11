@@ -1,6 +1,6 @@
 ### Running tests
 
-On console terminal run
+Open a terminal and run
 
 ```bash
 
@@ -12,18 +12,23 @@ cd keycloak_frontchannel_logout_test
 
 ```
 
-Open protected apache page browser at https://localhost
+Then open protected apache page browser at https://localhost . It should query for login, its admin:admin
 
-It should query for login, its admin:admin
-
-Open Keycloak account page on new tab at https://localhost:8081/auth/realms/master/account
+Also Keycloak account page on new tab at http://localhost:8081/auth/realms/master/account
 
 Click `Sign Out` button
 
-Refresh apache apache, should be queried for login again.
+Test refreshing apache page, should be queried for login again.
+
+
+### Useful urls
+
+Admin url: http://localhost:8081/auth/admin
+Admin clients url: http://localhost:8081/auth/admin/master/console/#/realms/master/clients
 
 
 ### References
+* [Keycloak](https://github.com/keycloak/keycloak)
 * [OpenID Connect Front-Channel Logout 1.0 - draft](https://openid.net/specs/openid-connect-frontchannel-1_0.html)
 * [zmartzone/mod_auth_openidc](https://github.com/zmartzone/mod_auth_openidc)
 * [My Keycloak fork](https://github.com/rhyamada/keycloak)
