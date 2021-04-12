@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title></title>
+    <style>
+        a {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Info</h2>
+    <pre id="info"></pre>
+    <h2>Links</h2>
+    <a href="http://localhost:8081/auth/realms/master/account" target="account">Account</a>
+    <a href="http://localhost:8081/auth/admin" target="admin">Admin</a>
+    <h2>References</h2>
+    <a href="https://github.com/rhyamada/keycloak" target="fork">Keycloak fork</a>
+    <a href="https://github.com/keycloak/keycloak" target="repo">Keycloak repo</a>
+    <a href="https://openid.net/specs/openid-connect-frontchannel-1_0.html" target="draft">OpenID Connect Front-Channel
+        Logout 1.0 - draft</a>
+    <a href="https://github.com/zmartzone/mod_auth_openidc" target="mod_auth_openidc">zmartzone/mod_auth_openidc</a>
+    <script>
+        function reload() {
+            fetch('/cgi-bin/env.cgi').then((r) => r.text()).then((t) => {
+                var env = {}
+                t.split('\n').forEach((l) => {
+                    var i = l.indexOf('=');
+                    if (i > 0)
+                        env[l.substring(0, i)] = l.substring(i + 1);
+                })
+                if (env['OIDC_CLAIM_preferred_username']) {
+                    document.title = 'Logged as ' + env['OIDC_CLAIM_preferred_username'];
+                    document.getElementById('info').innerText = 'Hi ' + env['OIDC_CLAIM_preferred_username'] + '\n'
+                        + 'Your sid is ' + env['OIDC_CLAIM_sid'] + '\n';
+                } else {
+                    document.title = 'Logged out';
+                    document.getElementById('info').innerText = 'You have logged out\n';
+                }
+            })
+        }
+        reload();
+        setInterval(reload, 2000);
+    </script>
+</body>
+
+</html>

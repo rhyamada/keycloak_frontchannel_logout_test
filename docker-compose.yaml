@@ -6,4 +6,5 @@ services:
     network_mode: host
     volumes:
       - ./oidc.conf:/etc/apache2/conf.d/z_oidc.conf
-    
+      - ./index.html:/var/www/localhost/htdocs/index.html
+      - ./env.cgi:/var/www/localhost/cgi-bin/env.cgi
