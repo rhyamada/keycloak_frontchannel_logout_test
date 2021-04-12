@@ -1,26 +1,29 @@
 <html>
 
 <head>
-    <title></title>
-    <style>
-        a {
-            display: block;
-        }
-    </style>
+    <title>Frontchannel logout test</title>
 </head>
 
 <body>
     <h2>Info</h2>
     <pre id="info"></pre>
     <h2>Links</h2>
-    <a href="http://localhost:8081/auth/realms/master/account" target="account">Account</a>
-    <a href="http://localhost:8081/auth/admin" target="admin">Admin</a>
+    <ul>
+        <li><a href="http://localhost:8081/auth/realms/master/account" target="account">Account</a></li>
+        <li><a href="http://localhost:8081/auth/admin" target="admin">Admin</a></li>
+    </ul>
     <h2>References</h2>
-    <a href="https://github.com/rhyamada/keycloak" target="fork">Keycloak fork</a>
-    <a href="https://github.com/keycloak/keycloak" target="repo">Keycloak repo</a>
-    <a href="https://openid.net/specs/openid-connect-frontchannel-1_0.html" target="draft">OpenID Connect Front-Channel
-        Logout 1.0 - draft</a>
-    <a href="https://github.com/zmartzone/mod_auth_openidc" target="mod_auth_openidc">zmartzone/mod_auth_openidc</a>
+    <ul>
+        <li><a href="https://github.com/rhyamada/keycloak" target="fork">Keycloak fork</a></li>
+        <li><a href="https://github.com/keycloak/keycloak" target="repo">Keycloak repo</a></li>
+        <li><a href="https://openid.net/specs/openid-connect-frontchannel-1_0.html" target="draft">OpenID Connect
+                Front-Channel
+                Logout 1.0 - draft</a></li>
+        <li><a href="https://github.com/zmartzone/mod_auth_openidc"
+                target="mod_auth_openidc">zmartzone/mod_auth_openidc</a></li>
+        <li><a href="https://issues.redhat.com/browse/KEYCLOAK-17653">KEYCLOAK-17653</a></li>
+        <li><a href="https://groups.google.com/g/keycloak-dev/c/GZr-qL2cquE">Groups</a></li>
+    </ul>
     <script>
         function reload() {
             fetch('/cgi-bin/env.cgi').then((r) => r.text()).then((t) => {
@@ -36,7 +39,7 @@
                         + 'Your sid is ' + env['OIDC_CLAIM_sid'] + '\n';
                 } else {
                     document.title = 'Logged out';
-                    document.getElementById('info').innerText = 'You have logged out\n';
+                    document.getElementById('info').innerText = 'You have logged out';
                 }
             })
         }

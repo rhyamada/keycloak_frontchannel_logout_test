@@ -40,3 +40,5 @@ Admin clients url: http://localhost:8081/auth/admin/master/console/#/realms/mast
 * [OpenID Connect Front-Channel Logout 1.0 - draft](https://openid.net/specs/openid-connect-frontchannel-1_0.html)
 * [zmartzone/mod_auth_openidc](https://github.com/zmartzone/mod_auth_openidc)
 * [My Keycloak fork](https://github.com/rhyamada/keycloak)
+* [KEYCLOAK-17653](https://issues.redhat.com/browse/KEYCLOAK-17653)
+* [Start discurssion](https://groups.google.com/g/keycloak-dev/c/GZr-qL2cquE)
