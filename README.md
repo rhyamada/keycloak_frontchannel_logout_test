@@ -1,3 +1,11 @@
+### Requirements
+
+* git
+* maven
+* jdk
+* docker
+* docker-compose
+
 ### Running tests
 
 Open a terminal and run
