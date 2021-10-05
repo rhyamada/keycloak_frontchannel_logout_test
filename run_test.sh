@@ -4,7 +4,7 @@ KC="http://localhost:8081/auth"
 
 docker-compose build
 if [ ! -d "keycloak/.git" ]; then
-    git clone https://github.com/rhyamada/keycloak.git
+    git clone -b KEYCLOAK-17653 https://github.com/pedroigor/keycloak.git keycloak
 fi
 # git -C keycloak pull
 mvn -f keycloak/pom.xml clean install -DskipTests=true
