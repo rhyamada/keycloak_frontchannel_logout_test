@@ -4,11 +4,11 @@ KC="http://localhost:8081/auth"
 
 docker-compose build
 if [ ! -d "keycloak/.git" ]; then
-    git clone -b KEYCLOAK-17653 https://github.com/pedroigor/keycloak.git keycloak
+    git clone https://github.com/rhyamada/keycloak.git keycloak
 fi
 # git -C keycloak pull
 mvn -f keycloak/pom.xml clean install -DskipTests=true
-mvn -f keycloak/testsuite/utils/pom.xml exec:java -Pkeycloak-server -Dkeycloak.bind.address=0.0.0.0 & KC_PID=$!
+JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n mvn -f keycloak/testsuite/utils/pom.xml exec:java -Pkeycloak-server -Dkeycloak.bind.address=0.0.0.0 & KC_PID=$!
 
 while  [ $(curl -sw "%{http_code}" -o /dev/null $KC/realms/master/) != "200" ]
 do

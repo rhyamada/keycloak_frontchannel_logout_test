@@ -2,18 +2,19 @@
     "clientId": "client_id",
     "secret" : "client_secret",
     "redirectUris": [
-        "https://localhost/callback"
+        "https://localhost/callback",
+        "https://keycloak.localhost/callback"
     ],
-    "baseUrl": "https://localhost/",
+    "baseUrl": "https://keycloak.localhost/",
     "enabled": true,
     "protocol": "openid-connect",
     "publicClient": false,
     "clientAuthenticatorType": "client-secret",
     "frontchannelLogout": true,
     "attributes": {
-        "backchannel.logout.session.required": "true",
-        "backchannel.logout.url.bak": "http://localhost/callback?logout=backchannel",
-        "frontchannel.logout.url": "https://localhost/callback?logout=img"
+        "old.backchannel.logout.session.required": "true",
+        "old.backchannel.logout.url.bak": "http://localhost/callback?logout=backchannel",
+        "frontchannel.logout.url": "https://keycloak.localhost/callback?logout=img"
     }
 }
 
